@@ -9,16 +9,16 @@ function Homepage() {
   return (
     <>
       <StyledHome>
-        <header className="header">
-          <img className="header__picture" src="./images/et.png" />
-          <div className="header__logo">
+
+        <main className="main">
+         <header className="header">
+            <img className="header__picture" src="./images/et.png" />
+            <div className="header__logo">
             <SpyGlass color="#ffffff" size="40px" />
             <h4>gfouz</h4>
-          </div>
-        </header>
-        <article className="main-image">
-          <h4>GFOUZ</h4>
-        </article>
+            </div>
+         </header>
+        </main>
         <Navbar />
         <article className="logo">
           <img className="logo__title" src="./images/literataGrey.png" />
@@ -32,7 +32,7 @@ function Homepage() {
             </p>
           </article>
           <article className="article__item">
-            <img className="banner__image" src="./images/writer.jpg" />
+            <img className="banner__image" src="./images/colors.jpg" />
           </article>
         </section>
         <section className="technologies">
@@ -73,7 +73,6 @@ const StyledHome = styled.div`
     width: 100%;
     display: grid;
     place-items: center;
-    background-image: linear-gradient(#222b13, #5a7131, #84a648);
   }
 
   .header__title {
@@ -101,10 +100,10 @@ const StyledHome = styled.div`
     }
   }
   .header__picture {
-    width: 100px;
+    width: 70px;
     margin: 1em 0;
   }
-  .main-image {
+  .main {
     color: #7ba13e;
     text-align: right;
     width: 100%;
@@ -113,9 +112,6 @@ const StyledHome = styled.div`
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    h4 {
-      margin: 0 2em;
-    }
   }
   .logo {
     width: 100%;
@@ -153,7 +149,7 @@ const StyledHome = styled.div`
     text-align: center;
     margin: 2em 0;
     width: 400px;
-    @media (max-width: 620px) {
+    @media (max-width: 600px) {
       max-width: 500px;
       width: 100%;
       height: auto;
@@ -164,7 +160,6 @@ const StyledHome = styled.div`
   .banner__image {
     max-width: 90%;
     height: auto;
-    box-shadow: 1px 1px 10px #222222;
   }
   .article__title {
     margin: 0 1em;
@@ -241,7 +236,6 @@ const StyledHome = styled.div`
   .lastsection {
     width: 100%;
     height: 300px;
-    padding: 2em 0;
     display: flex;
     flex-direction: column;
     align-items: center;
