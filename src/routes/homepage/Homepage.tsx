@@ -3,6 +3,7 @@ import { about, technologies } from "./content";
 import SpyGlass from "../../icons/SpyGlass";
 import Navbar from "../../components/Navbar";
 import styled from "styled-components";
+import MediaApps from '../../components/ContactMedia'
 
 function Homepage() {
   return (
@@ -47,6 +48,7 @@ function Homepage() {
             <p className="article__paragraph">{technologies}</p>
           </article>
         </section>
+         <MediaApps />
         <section className="lastsection">
           <img className="lastsection__image" src="./images/book.jpg" />
         </section>
@@ -54,7 +56,7 @@ function Homepage() {
           <img className="aside__image" src="./images/table.jpg" alt="table" />
         </aside>
         <footer>
-          <h4>GFOUZ &copy; 2022, made with ReactJs </h4>
+          <h4>GFOUZ &copy; 2022 - made with ReactJs </h4>
         </footer>
       </StyledHome>
     </>
@@ -232,7 +234,8 @@ const StyledHome = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #151515;
+    color: #ffffff;
+    text-shadow: 1px 1px 10px #222222;
     background-color: #a2a3a8;
   }
   .lastsection {
