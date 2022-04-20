@@ -1,6 +1,7 @@
 import * as React from "react";
-import {aboutme} from './content'
-import Navbar from "./Nav";
+import { about, technologies } from "./content";
+import SpyGlass from "../../icons/SpyGlass";
+import Navbar from "../../components/Navbar";
 import styled from "styled-components";
 
 function Homepage() {
@@ -8,27 +9,29 @@ function Homepage() {
     <>
       <StyledHome>
         <header className="header">
-          <img className="header__image" src="./images/headergray.jpg" />
-          <img
-            className="header__icon"
-            src="./images/wtexplorer.svg"
-            alt="logo"
-          />
+          <img className="header__picture" src="./images/et.png" />
+          <div className="header__logo">
+            <SpyGlass color="#ffffff" size="40px" />
+            <h4>gfouz</h4>
+          </div>
         </header>
-        <article className="logo">
-          <img src="./images/portfolio.png" className="logo__title" />
-          <img className="logo__icon" src="./images/explorer.svg" alt="logo" />
+        <article className="main-image">
+          <h4>GFOUZ</h4>
         </article>
         <Navbar />
+        <article className="logo">
+          <img className="logo__title" src="./images/literataGrey.png" />
+          <SpyGlass color="#555555" size="35px"  />
+        </article>
         <section className="banner">
           <article className="article__item">
             <h4 className="article__title">About me.</h4>
             <p className="article__paragraph">
-               {aboutme}
+              {about}
             </p>
           </article>
           <article className="article__item">
-            <img className="banner__image" src="./images/sitting.jpg" />
+            <img className="banner__image" src="./images/writer.jpg" />
           </article>
         </section>
         <section className="technologies">
@@ -41,25 +44,17 @@ function Homepage() {
           </article>
           <article className="article__item">
             <h4 className="article__title">technologies I am using:</h4>
-            <p className="article__paragraph">
-              Hello, my name is Giovani Fouz and I use modern JavaScript
-              frameworks such as React or Vue to create single page application
-              or full static sites so that among my skills are HTML, CSS, SCSS,
-              JavaScript and TypeScript. Besides i feel very comfortable with
-              some react technologies as styled-components, Material UI,
-              react-query, react-hook-form and NextJs and very soon i will be
-              learning about Deno that is a new technology on the server side.
-            </p>
+            <p className="article__paragraph">{technologies}</p>
           </article>
         </section>
         <section className="lastsection">
-            <img className="lastsection__image" src="./images/book.jpg" />
+          <img className="lastsection__image" src="./images/book.jpg" />
         </section>
         <aside>
-             <img className="aside__image" src="./images/table.jpg" alt="table" />
+          <img className="aside__image" src="./images/table.jpg" alt="table" />
         </aside>
         <footer>
-              <h2>Gfouz 2022</h2>
+          <h4>GFOUZ &copy; 2022, made with ReactJs </h4>
         </footer>
       </StyledHome>
     </>
@@ -73,12 +68,10 @@ const StyledHome = styled.div`
   margin: 0;
   padding: 0;
   .header {
-    position: relative;
     width: 100%;
-    height: 150px;
     display: grid;
     place-items: center;
-    background-color: #272727;
+    background-image: linear-gradient(#222b13, #5a7131, #84a648);
   }
 
   .header__title {
@@ -95,18 +88,32 @@ const StyledHome = styled.div`
     color: #333333;
     font-size: 0.9em;
   }
-
-  .header__image {
-    margin: 0;
-    width: 250px;
-    height: auto;
-  }
-  .header__icon {
-    width: 40px;
+  .header__logo {
+    text-align: center;
     position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
+    top: 30px;
+    left: 30px;
+    color: #ffffff;
+    h4 {
+      margin: 0;
+    }
+  }
+  .header__picture {
+    width: 100px;
+    margin: 1em 0;
+  }
+  .main-image {
+    color: #7ba13e;
+    text-align: right;
+    width: 100%;
+    height: 400px;
+    background-image: url("./images/boy.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    h4 {
+      margin: 0 2em;
+    }
   }
   .logo {
     width: 100%;
@@ -117,19 +124,26 @@ const StyledHome = styled.div`
     justify-content: center;
   }
   .logo__title {
-    width: 200px;
+    width: 250px;
     margin: 2em;
   }
   .logo__icon {
-    width: 50px;
+    width: 40px;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
   .banner {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     background-color: #ffffff;
     @media (max-width: 600px) {
       flex-direction: column;
+      align-items: center;
       justify-content: center;
     }
   }
@@ -137,33 +151,28 @@ const StyledHome = styled.div`
     text-align: center;
     margin: 2em 0;
     width: 400px;
-    height: 280px;
     @media (max-width: 620px) {
       max-width: 500px;
       width: 100%;
       height: auto;
-      margin: 0;
+      margin: 1em 0;
     }
   }
 
-  .article__image-container {
-    max-width: 320px;
-    height: auto;
-    text-align: center;
-  }
   .banner__image {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
-    margin: 1em 0 0 0;
+    box-shadow: 1px 1px 10px #222222;
   }
   .article__title {
-    padding: 0 0.8em;
+    margin: 0 1em;
     color: #385a61;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
   }
   .article__paragraph {
     padding: 0 1em;
+    margin: 0;
     text-align: left;
   }
   .banner__subtitle {
@@ -172,15 +181,15 @@ const StyledHome = styled.div`
   .technologies {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     @media (max-width: 600px) {
       flex-direction: column-reverse;
+      align-items: center;
       justify-content: center;
     }
   }
 
   .technologies__item {
-    border: 1px solid black;
     margin: 2em 0;
     display: flex;
     justify-content: flex-start;
@@ -194,10 +203,7 @@ const StyledHome = styled.div`
       padding: 1em;
     }
   }
-  .technologies__image-container {
-    max-width: 400px;
-    height: auto;
-  }
+
   .technologies__image {
     max-width: 100%;
     height: auto;
@@ -208,38 +214,38 @@ const StyledHome = styled.div`
     color: #282828;
   }
   aside {
-    background-image:linear-gradient(#000000, #222222, #a2a3a8);
+    background-image: linear-gradient(#000000, #222222, #a2a3a8);
     width: 100%;
     color: #ffffff;
     text-shadow: 1px 1px 10px #000000;
     text-align: center;
-
   }
   .aside__image {
     max-width: 100%;
     height: auto;
   }
   footer {
-     width: 100%;
-     height: 100px;
-     margin: -3px;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-items: center;
-     color: #000000;
-     background-color: #a2a3a8;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    margin: -3px 0 0 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #151515;
+    background-color: #a2a3a8;
   }
   .lastsection {
-     width: 100%;
-     height: 300px;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
+    width: 100%;
+    height: 300px;
+    padding: 2em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .lastsection__image {
-     max-width: 100%;
-     height: auto;
+    max-width: 100%;
+    height: auto;
   }
 `;
